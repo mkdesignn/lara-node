@@ -1,6 +1,8 @@
 let express = require('express');
 let router = require('./app/router');
+// let container = require('./lib/container.js');
 let app = express();
+
 process.env = require('./env.js');
 
 router.init(app);

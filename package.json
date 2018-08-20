@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "awilix": "^3.0.9",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-validation": "^1.0.2",

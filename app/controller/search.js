@@ -3,19 +3,15 @@ let base = require('./base.js'),
 module.exports = class panel {
 
     constructor(opt){
-      console.log(opt.User);
+        console.log(opt.User);
     }
 
-    test(){
-      console.log("this is test");
-    }
 
     index(req, res){
-
-        user.findOne().then(user => {
-            console.log(user.get('firstname'));
-            res.send(user.get('firstname'));
-        });
+        // user.findOne().then(user => {
+        //     console.log(user.get('firstname'));
+        //     res.send(user.get('firstname'));
+        // });
     }
 
     create(req, res){

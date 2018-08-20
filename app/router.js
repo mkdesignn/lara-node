@@ -2,27 +2,23 @@ let http = require('../lib/http_resolver.js');
 let middleware = require('./middleware.js');
 let bodyParser = require('body-parser');
 let panel_validation = require('./validation/panel');
+let container = require('../lib/container.js');
 
 module.exports = {
     init(app, objects = this.methods){
 
-        // initial the middleware
-        middleware.init(app);
-
         // make response objective
+        app.use(bodyParser.urlencoded({ extended: false }));
         app.use(bodyParser.json());
 
+        // initial the middleware
+        middleware.init(app, container);
 
-        // initial the routes
-        // panel
-        http.resolve('/panel', 'panel@index', 'get', app, panel_validation);
-        http.resolve('/panel/create', 'panel@create', 'get', app);
+        // search
+        app.get('/api/search', container.cradle.panelController.index);
 
-        // home
-        http.resolve('/', 'auth@login', 'get', app);
-
-        // authenticated
-        // http.resolve('/authenticate', 'auth@login', 'get', app);
+        // auth
+        app.get('/login', container.cradle.authController.login);
 
     }
 }
