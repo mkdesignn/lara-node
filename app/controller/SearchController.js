@@ -1,6 +1,6 @@
-let base = require('./base.js'),
+let base = require('./BaseController.js'),
     user = (new (require('./../model/User'))).boot();
-module.exports = class panel {
+module.exports = class SearchController {
 
     constructor(opt){
         console.log(opt.User);

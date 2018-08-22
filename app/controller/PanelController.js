@@ -1,14 +1,13 @@
-let base = require('./base.js'),
+let base = require('./BaseController.js'),
     user = (new (require('./../model/User'))).boot();
-module.exports = class panel {
+module.exports = class PanelController {
 
-    constructor(opt){
-      console.log(opt.User);
+    constructor(User){
+        user.findOne().then(user => {
+            console.log(user.get('firstname'));
+        });
     }
 
-    test(){
-      console.log("this is test");
-    }
 
     index(req, res){
 

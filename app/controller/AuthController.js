@@ -1,8 +1,8 @@
-let base = require('./base.js');
+let base = require('./BaseController.js');
 let user = (new (require("./../model/User.js"))).boot();
 let jwt  = require('jsonwebtoken');
 
-module.exports =  class auth extends base{
+module.exports =  class AuthController extends base{
 
     login(req, res){
         console.log(req.query.email);

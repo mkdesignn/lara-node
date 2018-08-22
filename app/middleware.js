@@ -1,10 +1,21 @@
-// let container = require('../lib/container.js');
+
+/*
+|--------------------------------------------------------------------------
+| Register Middleware
+|--------------------------------------------------------------------------
+|
+| Here is where you can register Middlewares for your application.
+|
+|
+*/
 
 module.exports = {
     init(app, container){
-
-        console.log(container);
-        // route middleware to verify a token
-        container.cradle.file_name(app);
-    }
+        this.bootMiddleware.forEach((elem) => {
+            container.resolve(elem);
+        })
+    },
+    bootMiddleware: [
+        'jwt'
+    ]
 }
