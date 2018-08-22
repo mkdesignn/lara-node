@@ -1,18 +1,18 @@
 let base = require('./BaseController.js');
-let user = (new (require("./../model/User.js"))).boot();
 let jwt  = require('jsonwebtoken');
 
-module.exports =  class AuthController extends base{
+module.exports =  class AuthController{
+
+    constructor(User){
+       this.User = User;
+    }
 
     login(req, res){
-        console.log(req.query.email);
-        console.log(process.env.mode);
-        user.findOne({
+        this.User.findOne({
             where: {
                 email: req.query.email
             }
         }).then( (user) => {
-            console.log(user);
             if (!user) {
                 res.json({ success: false, message: 'Authentication failed. User not found.' });
             } else if (user) {
@@ -38,10 +38,6 @@ module.exports =  class AuthController extends base{
                     });
                 }
             }
-
         });
-
-
-
     }
 }

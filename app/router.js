@@ -9,7 +9,7 @@ module.exports = {
         middleware.init(app, container);
 
 
-        // search
+        // register your routes
         app.get('/api/search', container.cradle.PanelController.index);
         app.get('/login', container.cradle.AuthController.login);
 

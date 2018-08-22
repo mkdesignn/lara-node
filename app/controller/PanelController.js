@@ -3,15 +3,13 @@ let base = require('./BaseController.js'),
 module.exports = class PanelController {
 
     constructor(User){
-        user.findOne().then(user => {
-            console.log(user.get('firstname'));
-        });
+        this.User = User;
     }
 
 
     index(req, res){
 
-        user.findOne().then(user => {
+        this.User.findOne().then(user => {
             console.log(user.get('firstname'));
             res.send(user.get('firstname'));
         });
