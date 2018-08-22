@@ -13,6 +13,7 @@ module.exports =  class AuthController{
                 email: req.query.email
             }
         }).then( (user) => {
+
             if (!user) {
                 res.json({ success: false, message: 'Authentication failed. User not found.' });
             } else if (user) {
