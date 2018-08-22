@@ -8,5 +8,8 @@
     "jsonwebtoken": "^8.3.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }
