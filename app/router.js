@@ -10,8 +10,8 @@ module.exports = {
 
 
         // register your routes
-        app.get('/api/search', container.cradle.PanelController.index);
         app.get('/login', container.cradle.AuthController.login);
+        app.get('/api/search', container.cradle.PanelController.index);
 
     }
 }
