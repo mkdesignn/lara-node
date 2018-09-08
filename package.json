@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "awilix": "^3.0.9",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-validation": "^1.0.2",
@@ -10,6 +11,7 @@
   },
   "devDependencies": {
     "db-migrate": "^0.11.1",
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.3",
+    "password-hash": "^1.2.2"
   }
 }

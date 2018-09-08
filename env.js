@@ -1,10 +1,10 @@
 module.exports = {
     database: {
         mysql: {
+            database_name: 'protel',
             username: 'root',
             password: '',
-            host: 'localhost',
-            database: 'ancestry_atlas'
+            host: 'localhost'
         }
     },
     jwt_secret: 'mkdesign83'
