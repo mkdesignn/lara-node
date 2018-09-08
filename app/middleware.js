@@ -5,13 +5,6 @@ let panel_validation = require('./validation/panel');
 module.exports = {
     init(app){
 
-        // app.use('/panel', function (req, res, next) {
-        //     console.log("session: ");
-        //     //if(req.session.user){
-        //         next()
-        //     //}
-        // });
-
         // route middleware to verify a token
         app.use('/panel', validate(panel_validation), function(err, req, res, next) {
 
