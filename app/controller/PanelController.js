@@ -1,5 +1,3 @@
-let base = require('./BaseController.js'),
-    user = (new (require('./../model/User'))).boot();
 module.exports = class PanelController {
 
     constructor(User){
@@ -8,9 +6,7 @@ module.exports = class PanelController {
 
 
     index(req, res){
-
         this.User.findOne().then(user => {
-            console.log(user.get('firstname'));
             res.send(user.get('firstname'));
         });
     }

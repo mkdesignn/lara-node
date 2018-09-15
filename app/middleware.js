@@ -1,21 +1,21 @@
-
+var ev = require('express-validation');
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
 |--------------------------------------------------------------------------
 |
-| Here is where you can register Middlewares for your application.
+| Here is where you can register Middleware for your application.
 |
 |
 */
 
 module.exports = {
-    init(app, container){
-        this.bootMiddleware.forEach((elem) => {
-            container.resolve(elem);
-        })
+    bootstrap(app, container){
+        for(var i in this.bootMiddleware){
+            app.use(this.bootMiddleware[i], container.resolve(i));
+        }
     },
-    bootMiddleware: [
-        'jwt'
-    ]
+    bootMiddleware: {
+        'jwt': '/api'
+    }
 }

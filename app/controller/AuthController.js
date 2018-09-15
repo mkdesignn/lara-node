@@ -1,13 +1,13 @@
-let base = require('./BaseController.js');
-let jwt  = require('jsonwebtoken');
-
+let bcrypt = require("bcryptjs");
+let jwt = require("jsonwebtoken");
 module.exports =  class AuthController{
 
     constructor(User){
-       this.User = User;
+        this.User = User;
     }
 
     login(req, res){
+
         this.User.findOne({
             where: {
                 email: req.query.email
@@ -19,7 +19,8 @@ module.exports =  class AuthController{
             } else if (user) {
 
                 // check if password matches
-                if (user.password != req.body.password) {
+                // console.log(bcrypt.hashSync(req.query.password));
+                if (!bcrypt.compareSync(req.query.password, user.password)) {
                     res.json({ success: false, message: 'Authentication failed. Wrong password.' });
                 } else {
 

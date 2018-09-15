@@ -1,8 +1,10 @@
 let jwt  = require('jsonwebtoken');
+var ev = require('express-validation');
 
-module.exports = function (app) {
+module.exports = function () {
+    return function (err, req, res, next) {
 
-    app.use("/api", function(req, res, next) {
+        if (err instanceof ev.ValidationError) return res.status(err.status).json(err);
 
         // check header or url parameters or post parameters for token
         var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -31,5 +33,5 @@ module.exports = function (app) {
             });
 
         }
-    });
+    }
 }

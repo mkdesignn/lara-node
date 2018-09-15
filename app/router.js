@@ -1,17 +1,45 @@
 let middleware = require('./middleware.js');
+validate = require('express-validation');
+let container = require('../lib/container.js');
 
 module.exports = {
-    init(app, container){
 
-        // initial the middleware
-        // please do not touch this part
-        // you need to register your middleware into the middleware.js
-        middleware.init(app, container);
+    init(app){
+
+        /*
+        |--------------------------------------------------------------------------
+        | call the container
+        |--------------------------------------------------------------------------
+        |
+        | we should call the container using the app express object
+        |
+        */
+        let containers = container(app);
 
 
-        // register your routes
-        app.get('/login', container.cradle.AuthController.login);
-        app.get('/api/search', container.cradle.PanelController.index);
+        /*
+        |--------------------------------------------------------------------------
+        | register routes
+        |--------------------------------------------------------------------------
+        |
+        | we should call the container using the app express object
+        |
+        */
+        app.post('/login', containers.cradle.AuthController.login.bind(containers.cradle.AuthController));
+        app.post('/api/search', containers.cradle.SearchController.index.bind(containers.cradle.SearchController));
+        // app.get('/api/reserve', container.cradle.ReserveController.index);
+        // app.get('/api/book', container.cradle.BookController.index);
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Initial the middleware
+        |--------------------------------------------------------------------------
+        |
+        | we Bootstrap the middleware for registering other middlewares
+        |
+        */
+        middleware.bootstrap(app, containers);
 
     }
 }
