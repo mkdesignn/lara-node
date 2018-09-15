@@ -16,7 +16,6 @@ module.exports = {
         */
         let containers = container(app);
 
-
         /*
         |--------------------------------------------------------------------------
         | register routes
@@ -40,6 +39,5 @@ module.exports = {
         |
         */
         middleware.bootstrap(app, containers);
-
     }
 }

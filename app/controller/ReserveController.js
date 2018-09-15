@@ -1,7 +1,7 @@
 module.exports = class PanelController {
 
-    constructor(User){
-        this.User = User;
+    constructor(){
+
     }
 
 

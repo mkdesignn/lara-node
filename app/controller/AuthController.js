@@ -2,8 +2,8 @@ let bcrypt = require("bcryptjs");
 let jwt = require("jsonwebtoken");
 module.exports =  class AuthController{
 
-    constructor(User){
-        this.User = User;
+    constructor(user){
+        this.User = user;
     }
 
     login(req, res){

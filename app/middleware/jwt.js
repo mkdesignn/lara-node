@@ -1,5 +1,5 @@
 let jwt  = require('jsonwebtoken');
-var ev = require('express-validation');
+let ev = require('express-validation');
 
 module.exports = function () {
     return function (err, req, res, next) {

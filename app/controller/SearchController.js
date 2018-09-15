@@ -1,6 +1,8 @@
-let base = require('./BaseController.js');
-
 module.exports = class SearchController {
+
+    constructor(){
+
+    }
 
     index(req, res){
 
@@ -9,4 +11,5 @@ module.exports = class SearchController {
     create(req, res){
         return res.send("we are in the middleware");
     }
+
 }

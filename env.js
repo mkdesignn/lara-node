@@ -1,7 +1,7 @@
 module.exports = {
     database: {
         mysql: {
-            database_name: 'ancestry_atlas',
+            database_name: 'protel',
             username: 'root',
             password: '',
             host: 'localhost'
