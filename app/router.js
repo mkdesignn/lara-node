@@ -1,6 +1,7 @@
 let middleware = require('./middleware.js');
 validate = require('express-validation');
 let container = require('../lib/container.js');
+let express = require('express');
 
 module.exports = {
 
@@ -37,5 +38,15 @@ module.exports = {
         |
         */
         middleware.bootstrap(app, containers);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Serving Static files
+        |--------------------------------------------------------------------------
+        |
+        | we wil serve static files
+        |
+        */
+        app.use(express.static('public'))
     }
 }
