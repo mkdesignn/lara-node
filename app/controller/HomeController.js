@@ -1,4 +1,4 @@
-module.exports = class SearchController {
+module.exports = class HomeController {
 
     constructor(){
 
@@ -11,5 +11,4 @@ module.exports = class SearchController {
     create(req, res){
         return res.send("we are in the middleware");
     }
-
 }

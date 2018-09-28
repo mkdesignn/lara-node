@@ -1,4 +1,15 @@
 {
+  "name": "laravel-node",
+  "version": "1.0.0",
+  "description": "node package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo"
+  },
+  "keywords": [
+    "node, lara-node"
+  ],
+  "author": "mohammad kaab",
   "dependencies": {
     "awilix": "^3.0.9",
     "axios": "^0.18.0",

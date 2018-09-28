@@ -25,9 +25,7 @@ module.exports = {
         |
         */
         app.post('/login', containers.cradle.AuthController.login.bind(containers.cradle.AuthController));
-        app.post('/api/search', containers.cradle.SearchController.index.bind(containers.cradle.SearchController));
-        // app.get('/api/reserve', container.cradle.ReserveController.index);
-        // app.get('/api/book', container.cradle.BookController.index);
+        app.post('/home', containers.cradle.HomeController.index.bind(containers.cradle.HomeController));
 
 
         /*
