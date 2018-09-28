@@ -5,7 +5,7 @@ let express = require('express');
 
 module.exports = {
 
-    init(app){
+    init(app, listening_app){
 
         /*
         |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ module.exports = {
         | we should call the container using the app express object
         |
         */
-        let containers = container(app);
+        let containers = container(app, listening_app);
 
         /*
         |--------------------------------------------------------------------------

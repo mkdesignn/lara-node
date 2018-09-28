@@ -4,6 +4,8 @@ let parseRequest = require("./lib/parseRequest.js");
 let app = express();
 process.env = require('./env.js');
 
-routes.init(parseRequest.init(app));
+let listening_app = app.listen(3000, () => console.log('Example app listening on port 3000!'));
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+routes.init(parseRequest.init(app), listening_app);
+
+
